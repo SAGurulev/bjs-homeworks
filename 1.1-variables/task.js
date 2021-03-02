@@ -25,7 +25,7 @@ function calculateFormula() {
     let x = 2;
 	let y = 22;
 	let z = 0;
-	let result = x * y + 5 * z + x - 1н;
+	let result = x * y + 5 * z + x - 1;
     
     return result;
 }
