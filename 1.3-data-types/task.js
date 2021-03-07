@@ -9,7 +9,7 @@ function calculateTotalMortgage(percent, contribution, amount, date) {
     if (amount <= 0 || typeof(amount) === "undefined") {
         return `Параметр "Общая стоимость" содержит неправильное значение ${amount}`;
     }
-
+    let day = new Date().getDate() - date.new Date().getDate;
     let P = (percent / 12 / 100);
     let S = parseInt(amount) - parseInt(contribution);
     if (day <= 0) {
@@ -23,10 +23,10 @@ function calculateTotalMortgage(percent, contribution, amount, date) {
 function getGreeting(name) {
     // код для задачи №2 писать здесь
     // return greeting;
-    let unknown = "Аноним."
-    if (typeof(percent) === "undefined") {
-        return `Привет, Fyjyмир! Меня зовут ${unknown}`
+    if (typeof(name) == "undefined") {
+        return (`Привет, мир! Меня зовут Аноним.`)
     } else {
-    return `Привет, мир! Меня зовут ${name}.`
+    return (`Привет, мир! Меня зовут ${name}.)`
     }
+    // return (`Привет, мир! Меня зовут ${(name) || "Аноним".}`)
 }
