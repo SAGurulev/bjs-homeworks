@@ -37,26 +37,27 @@ function getAverageScore(data) {
     let diploma = {};
     let diplomaAverage = [];
     for (let prop in data) {
-        diploma[prop] = getAverageMark(data[prop])
-        diplomaAverage.push(getAverageMark(data[prop]))
+        diploma[prop] = getAverageMark(data[prop]);
+        diplomaAverage.push(getAverageMark(data[prop]));
     }
-    diploma.diplomaAverage = getAverageMark(diplomaAverage);
+    diploma.average = getAverageMark(diplomaAverage);
     return diploma;
-};
+}
 
 function getAverageMark(marks) {
     let quantityScore = marks.length;
     let average = 0;
 
     if (quantityScore == 0) {
-        return 0
-    };
-    for (let i = 0; i < marks.length; i++) {
-        average = average + marks[i]
+        return 0;
     }
-    average = average / marks.length
+    
+    for (let i = 0; i < marks.length; i++) {
+        average = average + marks[i];
+    }
+    average = average / marks.length;
     return average;
-};
+}
 
 function getPersonData(secretData) {
     let pirat = {};
@@ -67,9 +68,9 @@ function getPersonData(secretData) {
 function getDecodedValue(secret) {
     let name;
     if (secret == 0) {
-        name = "Родриго"
-    } else if (secret == 1) {
-        name = "Эмильо "
-    };
+        name = "Родриго";
+    } else {
+        name = "Эмильо";
+    }
     return name;
 }
