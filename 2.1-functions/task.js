@@ -62,7 +62,7 @@ function getPersonData(secretData) {
     let pirat = {};
     pirat.firstName = getDecodedValue(secretData["aaa"]);
     pirat.lastName = getDecodedValue(secretData["bbb"]);
-    return pisrat;
+    return pirat;
 }
 function getDecodedValue(secret) {
     let name;
