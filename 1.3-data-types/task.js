@@ -9,11 +9,11 @@ function calculateTotalMortgage(percent, contribution, amount, date) {
     if (amount <= 0 || typeof(amount) === "undefined") {
         return `Параметр "Общая стоимость" содержит неправильное значение ${amount}`;
     }
-    let n = (newDate().getDate() - Number(date).newDate(date).getDate)/30;
+    let n = (new Date().getDate() - Number(date).new Date(date).getDate)/30;
     let P = (percent / 12 / 100);
     let S = parseInt(amount) - parseInt(contribution);
     if (n <= 0) {
-        return `Параметр "Срок ипотеки" содержит неправильное значение ${date}`;
+        return `Параметр "Срок ипотеки" содержит неправильное значение ${Number(date)}`;
     }
     let payment = S * (P + P / (((1 + P) ** n) - 1));
     let totalAmount = (payment * n).toFixed(2);
@@ -23,10 +23,10 @@ function calculateTotalMortgage(percent, contribution, amount, date) {
 function getGreeting(name) {
     // код для задачи №2 писать здесь
     // return greeting;
-    if (typeof(name) === "undefined") {
-        return (`Привет, мир! Меня зовут Аноним.`)
+    if (name == falsy) {
+        return `Привет, мир! Меня зовут Аноним.`
     } else {
-    return (`Привет, мир! Меня зовут ${name}.)`
+    return `Привет, мир! Меня зовут ${name}.`
     }
     // return (`Привет, мир! Меня зовут ${(name) || "Аноним".}`)
 }
