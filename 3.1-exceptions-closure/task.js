@@ -40,7 +40,8 @@ class Triangle {
 
 function getTriangle(a, b, c) {
     try {
-        return myTriangle = new Triangle(a, b, c);
+        let myTriangle = new Triangle(a, b, c);
+        return myTriangle;
     } catch (e) {
         return {
             getPerimeter: () => "Ошибка! Треугольник не существует",
