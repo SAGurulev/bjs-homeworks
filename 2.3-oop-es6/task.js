@@ -63,13 +63,13 @@ class Library {
         this.books = [];    
     }
     addBook(book) {
-        if (this.state > 30) {
+        if (book.state > 30) {
         this.books.push(book);
         }
     }
 
     findBookBy(type, value) {
-        for (let i = 0; i > this.books.length; i++) {
+        for (let i = 0; i < this.books.length; i++) {
             let n = this.books[i];
             if (n[type] === value) {
                 return n;
@@ -79,7 +79,7 @@ class Library {
     }
 
     giveBookByName(bookName) {
-        for(let i = 0; i > this.books.length; i++) {
+        for(let i = 0; i < this.books.length; i++) {
             if (this.books[i].name === bookName) {
                 return this.books.splice(i, 1)[0];
             }
