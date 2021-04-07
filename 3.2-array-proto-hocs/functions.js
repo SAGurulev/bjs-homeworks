@@ -2,52 +2,66 @@
 //Задача 1
 const weapons = [new Knife(), new Staff(), new Axe(), new StormStaff(), new LongBow(), new Bow()];
 
-// console.log(weapons);
 function getNames() {
-  return weapons.map(function(f) {
-    return f.name;
-  });
-}
-// console.log(getNames());
-function getCountReliableWeapons(parametr) {
-  let prochnost = weapons.filter(function(item) {
-    return item.durability > parametr;
-  });
-  return prochnost.length;
-}
-function hasReliableWeapons(parametr) {
-  let all = weapons.map(function(f) {
-    return f.durability;
-  });
-  let all2 = all.some(function(durability) {
-    return durability > parametr;
-  });
-  return all2;
-}
-// console.log(getCountReliableWeapons(400))
-
-hasReliableWeapons(700)
-function getReliableWeaponsNames(parametr) {
-  let prochnost2 = weapons.filter(function(item) {
-    return item.durability > parametr;
-  });
-  let names = prochnost2.map(function(f) {
-    return f.name;
-  });
-
-  return names;
+    return weapons.map(item => item.name);
 }
 
-getReliableWeaponsNames(200);
+function getCountReliableWeapons(param) {
+    return weapons.filter(item => item.durability > param).length;
+}
+
+function hasReliableWeapons(param) {
+    return weapons.map(item => item.durability).some(elem => elem > param);
+}
+
+
+function getReliableWeaponsNames(param) {
+    return (weapons.filter(item => item.durability > param)).map(item => item.name);
+}
+
+
 function getTotalDamage() {
-    let allDurability = weapons.reduce(function (parametr, element) { 
-    
-    return parametr + element.attack;
-    
-    }, 0);
-   return allDurability;
-  }
-  getTotalDamage();
+    return weapons.reduce((prev, cur) => prev + cur.attack, 0);
+}
 //Задача 2
 
-//Задача 3
+function sleep(milliseconds) 
+{
+  let e = new Date().getTime() + milliseconds;
+  while (new Date().getTime() <= e) {}
+}
+
+function sum(...args) {
+    // Замедление на половину секунды.
+    sleep(100); // Можно использовать другое значение замедления.
+    return args.reduce((sum, arg) => {
+      return sum += +arg;
+    }, 0);
+  }
+  function compareArrays( arr1, arr2 ) {
+    const compareArrays = (arr1, arr2) => arr1.length === arr2.length && arr1.every((n, i) => n === arr2[i]);
+    // return arr1.filter(function(i) {return arr2.indexOf(i) < 0;});
+  }
+
+  function memorize(fn, limit) {
+    const memory = [];
+
+    return function newF(...args) {
+        const value = memory.find(item => compareArrays(item.args, args));
+
+        if (value) {
+            return value.result;
+        }
+
+        const result = fn(...args);
+
+        if (memory.length > limit) {
+            memory.shift();
+        }
+        memory.push({
+            args,
+            result
+        });
+        return result;
+    }
+}
